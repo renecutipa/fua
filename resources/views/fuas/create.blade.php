@@ -1,0 +1,311 @@
+@extends('layouts.app')
+
+
+@section('content')
+
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            <h3 class="fw-bold mb-3">Nuevo - Formato Unico de Atención</h3>              
+        </div>
+        <form method="POST" action="{{route('fuas.store')}}">
+        @csrf
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Formato</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group form-group-default label-ipress">
+                                <label>Código IPRESS</label>
+                                <input id="codigo_ipress" class="form-control" name="codigo_ipress" maxlength="10"/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-default label-ipress">
+                                <label>Nombre IPRESS</label>
+                                <input id="nombre_ipress" class="form-control" disabled/>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>                  
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Asegurado</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-1">
+                            <div class="form-group form-group-default">
+                            <label>Tipo Doc.</label>
+                                <select class="form-select" id="tipo_documento" name="tipo_documento">
+                                    <option value="2">2 - DNI</option>
+                                    <option value="3">3 - CE</option>
+                                </select>
+                            </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-group-default">
+                                    <label>DNI</label>
+                                    <input id="dni" name="dni" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-group-default asegurado_dato">
+                                    <label>Apellido Paterno</label>
+                                    <input id="asegurado_paterno" name="asegurado_paterno" type="text" class="form-control"/>
+                                </div>                                
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-group-default asegurado_dato">
+                                    <label>Apellido Materno</label>
+                                    <input id="asegurado_materno" name="asegurado_materno" type="text" class="form-control"/>
+                                </div>                                
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-group-default asegurado_dato">
+                                    <label>Primer Nombre</label>
+                                    <input id="asegurado_nombres" name="asegurado_nombres" type="text" class="form-control"/>
+                                </div>                                
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default asegurado_dato">
+                                    <label>Otros Nombres</label>
+                                    <input id="asegurado_onombres" name="asegurado_onombres" type="text" class="form-control"/>
+                                </div>                                
+                            </div>
+                            <div class="col-md-1">
+                                <div class="form-group form-group-default">
+                                    <label>Genero</label>
+                                    <select class="form-select" id="asegurado_genero" name="asegurado_genero">
+                                        <option value="">-</option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Femenino</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group form-group-default">
+                                <label>Salud Materna</label>
+                                    <select class="form-select" id="salud_materna" name="salud_materna">
+                                        <option value="">-</option>
+                                        <option value="G">Gestante</option>
+                                        <option value="P">Puerpera</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default">
+                                    <label>Fecha Probable de parto / Fecha de Parto</label>
+                                    <div class="input-group">
+                                        <input id="parto_d" type="text" class="form-control col-3" disabled="true" maxlength="2"/>
+                                        <input id="parto_m" type="text" class="form-control col-3" disabled="true" maxlength="2"/>
+                                        <input id="parto_y" type="text" class="form-control col-3" disabled="true" maxlength="4"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default">
+                                    <label>Fecha de Nacimiento</label>
+                                    <div class="input-group">
+                                        <input id="nacimiento_d" type="text" class="form-control col-3" maxlength="2"/>
+                                        <input id="nacimiento_m" type="text" class="form-control col-3" maxlength="2"/>
+                                        <input id="nacimiento_a" type="text" class="form-control col-3" maxlength="4"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default">
+                                    <label>Fecha de Fallecimiento</label>
+                                    <div class="input-group">
+                                        <input id="fallecimiento_d" type="text" class="form-control col-3" maxlength="2"/>
+                                        <input id="fallecimiento_m" type="text" class="form-control col-3" maxlength="2"/>
+                                        <input id="fallecimiento_a" type="text" class="form-control col-3" maxlength="4"/>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-group-default">
+                                    <label>Historia Clínica</label>
+                                    <input id="historia" name="historia" type="text" class="form-control"/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Atención</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group form-group-default">
+                                <label>Fecha de Atención</label>
+                                <div class="input-group">
+                                    <input id="fua_atencion_d" type="text" class="form-control col-3" maxlength="2"/>
+                                    <input id="fua_atencion_m" type="text" class="form-control col-3" maxlength="2"/>
+                                    <input id="fua_atencion_a" type="text" class="form-control col-3" maxlength="4"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group form-group-default">
+                                <label>Hora de Atención</label>
+                                <div class="input-group">
+                                    <input id="fua_atencion_h" type="text" class="form-control col-6" maxlength="2"/>
+                                    <input id="fua_atencion_i" type="text" class="form-control col-6" maxlength="2"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group form-group-default">
+                            <label>Codigo de Prestación</label>
+                                <select class="form-select" id="codigo_prestacional" name="codigo_prestacional">
+                                    <option>- SELECCIONE -</option>
+                                    <option value="111">111</option>
+                                    <option value="117">117</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>                  
+                </div>
+            </div>
+            <!--div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Prestación Administrativa</div>
+                </div>
+                <div class="card-body">
+                </div>                  
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Diagnósticos</div>
+                </div>
+                <div class="card-body">
+                </div>                  
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Rendición de Gastos</div>
+                </div>
+                <div class="card-body">
+                </div>                  
+                </div>
+            </div-->
+        </div>
+        <div class="row">
+                <button type="submit" class="btn-block btn btn-success">Guardar</button>
+        </div>
+        </form>
+    </div>
+</div>
+
+@endsection
+
+@push('scripts')
+<script>
+    $( "#dni" ).on( "keyup", function() {
+        var tipo_documento = $('#tipo_documento').val();
+        var dni = $('#dni').val();
+
+        if(dni.length == 8 && tipo_documento == "2"){
+            $.ajax({
+                url: "../consultaDNI/"+dni,
+                cache: false,
+                success: function(data){
+                    data = $.parseJSON(data);
+                    if(data != null){
+                        var nombres = (data.nombres).split(" ");                        
+                        $('#asegurado_nombres').val(nombres[0]);
+                        nombres.shift();
+                        var onombres = "";
+                        nombres.forEach(function(n){
+                            onombres = onombres + n + " ";
+                        });
+                        $('#asegurado_onombres').val(onombres.trim());
+                        $('#asegurado_paterno').val(data.apellidoPaterno);
+                        $('#asegurado_materno').val(data.apellidoMaterno);
+                        $( ".asegurado_dato" ).addClass( "has-success" );                        
+                        $('#asegurado_genero').focus();
+                    }
+                    
+                }
+            });
+        }
+    } );
+
+    $("#salud_materna" ).on( "change", function() {
+        if($('#salud_materna').val() != ""){
+            $("#parto_d").prop("disabled", false);
+            $("#parto_m").prop("disabled", false);
+            $("#parto_y").prop("disabled", false);
+        }else{
+            $("#parto_d").prop("disabled", true);
+            $("#parto_m").prop("disabled", true);
+            $("#parto_y").prop("disabled", true);
+        }
+    } );
+
+    $("#asegurado_genero" ).on("change", function() {
+        if($('#asegurado_genero').val() == "F"){
+            $("#salud_materna").prop("disabled", false);
+            /*$("#parto_d").prop("disabled", false);
+            $("#parto_m").prop("disabled", false);
+            $("#parto_y").prop("disabled", false);*/
+        }else{
+            $("#salud_materna").prop("disabled", true);
+            /*$("#parto_d").prop("disabled", true);
+            $("#parto_m").prop("disabled", true);
+            $("#parto_y").prop("disabled", true);*/
+        }
+    } );
+
+    $( "#codigo_ipress" ).on( "keyup", function() {
+        var codigo_ipress = $('#codigo_ipress').val();
+
+        if(codigo_ipress.length == 10){
+            $.ajax({
+                url: "../consultaIPRESS/"+codigo_ipress,
+                cache: false,
+                success: function(data){
+                    data = $.parseJSON(data);
+                    if(data.status == "success"){
+                        $("#nombre_ipress").val(data.nombre_renaes);
+                        $(".label-ipress").removeClass("has-error");
+                        $(".label-ipress").addClass("has-success");
+                        $('#tipo_documento').focus();
+                    }else{
+                        $(".label-ipress").removeClass("has-success");
+                        $(".label-ipress").addClass("has-error");
+                        $('#codigo_ipress').val("");
+                        $('#nombre_ipress').val("");
+                        $('#codigo_ipress').focus();
+                    }
+                        
+                }
+            });
+        }
+    } );
+
+
+</script>
+@endpush
