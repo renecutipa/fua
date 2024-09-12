@@ -55,49 +55,49 @@
                             <div class="col-md-1">
                             <div class="form-group form-group-default">
                             <label>Tipo Doc.</label>
-                                <select class="form-select" id="tipo_documento" name="tipo_documento">
-                                    <option value="2">2 - DNI</option>
-                                    <option value="3">3 - CE</option>
+                                <select class="form-select" id="tipo_documento"  disabled>
+                                    <option value="2" @if($fua->tipo_documento == "2") selected @endif>2 - DNI</option>
+                                    <option value="3" @if($fua->tipo_documento == "3") selected @endif>3 - CE</option>
                                 </select>
                             </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>DNI</label>
-                                    <input id="dni" name="dni" type="text" class="form-control" value="{{$fua->dni}}"/>
+                                    <input id="dni" type="text" class="form-control" value="{{$fua->dni}}" disabled/>
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-group-default asegurado_dato">
                                     <label>Apellido Paterno</label>
-                                    <input id="asegurado_paterno" name="asegurado_paterno" type="text" class="form-control" value="{{$fua->asegurado_paterno}}"/>
+                                    <input id="asegurado_paterno" type="text" class="form-control" value="{{$fua->asegurado_paterno}}" disabled/>
                                 </div>                                
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-group-default asegurado_dato">
                                     <label>Apellido Materno</label>
-                                    <input id="asegurado_materno" name="asegurado_materno" type="text" class="form-control" value="{{$fua->asegurado_materno}}"/>
+                                    <input id="asegurado_materno" type="text" class="form-control" value="{{$fua->asegurado_materno}}" disabled/>
                                 </div>                                
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group form-group-default asegurado_dato">
                                     <label>Primer Nombre</label>
-                                    <input id="asegurado_nombres" name="asegurado_nombres" type="text" class="form-control" value="{{$fua->asegurado_nombres}}"/>
+                                    <input id="asegurado_nombres" type="text" class="form-control" value="{{$fua->asegurado_nombres}}" disabled/>
                                 </div>                                
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group form-group-default asegurado_dato">
                                     <label>Otros Nombres</label>
-                                    <input id="asegurado_onombres" name="asegurado_onombres" type="text" class="form-control" value="{{$fua->asegurado_onombres}}"/>
+                                    <input id="asegurado_onombres" type="text" class="form-control" value="{{$fua->asegurado_onombres}}" disabled/>
                                 </div>                                
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>Genero</label>
-                                    <select class="form-select" id="asegurado_genero" name="asegurado_genero">
+                                    <select class="form-select" id="asegurado_genero" disabled>
                                         <option value="">-</option>
-                                        <option value="M">Masculino</option>
-                                        <option value="F">Femenino</option>
+                                        <option value="M" @if($fua->asegurado_genero == "M") selected @endif>Masculino</option>
+                                        <option value="F" @if($fua->asegurado_genero == "F") selected @endif>Femenino</option>
                                     </select>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>Fecha Probable de parto / Fecha de Parto</label>
                                     <div class="input-group">
@@ -121,17 +121,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>Fecha de Nacimiento</label>
                                     <div class="input-group">
-                                        <input id="nacimiento_d" type="text" class="form-control col-3" maxlength="2"/>
-                                        <input id="nacimiento_m" type="text" class="form-control col-3" maxlength="2"/>
-                                        <input id="nacimiento_a" type="text" class="form-control col-3" maxlength="4"/>
+                                        <input id="nacimiento_d" type="text" class="form-control col-3" maxlength="2" value="{{substr($fua->fecha_nacimiento, 8,2)}}" disabled/>
+                                        <input id="nacimiento_m" type="text" class="form-control col-3" maxlength="2" value="{{substr($fua->fecha_nacimiento, 5,2)}}" disabled/>
+                                        <input id="nacimiento_a" type="text" class="form-control col-3" maxlength="4" value="{{substr($fua->fecha_nacimiento, 0,4)}}" disabled/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>Fecha de Fallecimiento</label>
                                     <div class="input-group">
@@ -140,9 +140,8 @@
                                         <input id="fallecimiento_a" type="text" class="form-control col-3" maxlength="4"/>
                                     </div>
                                 </div>
-                                </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="form-group form-group-default">
                                     <label>Historia Clínica</label>
                                     <input id="historia" name="historia" type="text" class="form-control"/>
@@ -191,6 +190,52 @@
                         </div>
                     </div>
                 </div>                  
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card">
+                <div class="card-header">
+                    <div class="card-title">Diagnósticos</div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-group form-group-default">
+                                <label>Tipo Doc.</label>
+                                <select class="form-select" name="dx[]">
+                                    <option value="I">INGRESO</option>
+                                    <option value="E">EGRESO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group form-group-default">
+                                <label>Tipo de DX</label>
+                                <select class="form-select" id="tipo_documento" name="tdx[]">
+                                    <option value="P">PREVENTIVO</option>
+                                    <option value="D">DEFINITIVO</option>
+                                    <option value="R">REFERENCIA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group form-group-default">
+                                <label>CIE10</label>
+                                <input id="cie10" name="cie10" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group form-group-default label-ipress">
+                                <label>Descripción CIE10</label>
+                                <input id="nombre_ipress" class="form-control" disabled/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <button class="btn btn-block btn-danger btn-lg"> <i class="fas fa-trash"></i> </button>
+                        </div>
+                    </div>                    
                 </div>
             </div>
             <!--div class="col-md-12">
