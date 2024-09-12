@@ -238,7 +238,7 @@
                     </div>                    
                 </div>
             </div>
-            <!--div class="col-md-12">
+            <div class="col-md-12">
                 <div class="card">
                 <div class="card-header">
                     <div class="card-title">Prestación Administrativa</div>
@@ -264,7 +264,7 @@
                 <div class="card-body">
                 </div>                  
                 </div>
-            </div-->
+            </div>
         </div>
         <div class="row">
                 <button type="submit" class="btn-block btn btn-success">Guardar</button>
